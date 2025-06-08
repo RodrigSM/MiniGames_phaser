@@ -1,23 +1,24 @@
 {
-  "name": "phaser-examples",
-  "homepage": "https://noowxela.github.io/phaser-examples",
+  "name": "minigames-phaser",
+  "homepage": "https://github.com/RodrigSM/MiniGames_phaser",
   "version": "0.0.1",
-  "description": "Phaser Examples",
+  "description": "Coleção de jogos desenvolvidos com Phaser 3",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/noowxela/phaser-examples.git"
+    "url": "git+https://github.com/RodrigSM/MiniGames_phaser.git"
   },
   "keywords": [
     "phaser",
-    "examples"
+    "games",
+    "html5"
   ],
-  "author": "Alex Woon",
+  "author": "Rodrigo Silva",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/noowxela/phaser-examples/issues"
+    "url": "https://github.com/RodrigSM/MiniGames_phaser/issues"
   },
   "scripts": {
-    "deploy": "gh-pages -d ../phaser-examples"
+    "deploy": "gh-pages -d ."
   },
   "devDependencies": {
     "gh-pages": "^5.0.0"
