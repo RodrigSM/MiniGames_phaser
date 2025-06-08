@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <title>Phaser Examples - Connected</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #333;
+        }
+
+        #gameContainer {
+            margin: 0 auto;
+            height: 100vh;
+            display: flex;
+        }
+
+        canvas {
+            margin: auto
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #232526;
+            color: #fff;
+            padding: 0.5rem 1.2rem;
+            border-radius: 22px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin: 2rem 0 1.5rem 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            transition: background 0.18s, color 0.18s;
+        }
+
+        .back-button:hover {
+            background: #4f8cff;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../index.html" class="back-button"><i class="fas fa-arrow-left"></i> Voltar ao Menu</a>
+    <div id="gameContainer"></div>
+    <script
+        type="text/javascript">window.Phaser || document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/2.4.4/phaser.min.js"><\/script>')</script>
+
+    <script src="../../plugins/phaser-debug.min.js"></script>
+    <script src="../../plugins/phlog.js"></script>
+    <script src="js/game.js"></script>
+</body>
+
+</html>

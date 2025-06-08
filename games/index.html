@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Games</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #232526 0%, #4f8cff 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 1rem 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .main-title {
+      font-size: 2.8rem;
+      font-weight: bold;
+      margin-bottom: 2.5rem;
+      letter-spacing: 1px;
+      text-align: center;
+      color: #4f8cff;
+      text-shadow: 0 4px 24px rgba(79,140,255,0.25), 0 2px 8px rgba(0,0,0,0.18);
+    }
+
+    .games-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 3.5rem;
+      width: 100%;
+      max-width: 1100px;
+      justify-items: center;
+    }
+
+    .game-card {
+      background: rgba(40, 50, 80, 0.55);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+      padding: 1.3rem 1.2rem 1.7rem 1.2rem;
+      max-width: 260px;
+      width: 100%;
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.18s, box-shadow 0.18s, border 0.18s;
+      border: 1.5px solid rgba(79,140,255,0.13);
+      backdrop-filter: blur(8px);
+    }
+
+    .game-card:hover {
+      transform: translateY(-10px) scale(1.045);
+      box-shadow: 0 16px 48px 0 rgba(79,140,255,0.22);
+      border: 2px solid #4f8cff;
+      background: rgba(79,140,255,0.13);
+    }
+
+    .game-card img.game-screenshot {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1.1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    }
+
+    .game-title {
+      font-size: 1.18rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 0.7rem;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.13);
+    }
+
+    .game-description {
+      font-size: 1.01rem;
+      color: #e0e0e0;
+      text-align: center;
+      margin-bottom: 1.1rem;
+      min-height: 44px;
+    }
+
+    .play-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(90deg, #4f8cff 0%, #00e6d0 100%);
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.08rem;
+      transition: background 0.18s, box-shadow 0.18s;
+      margin-top: auto;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(79,140,255,0.10);
+      letter-spacing: 0.5px;
+    }
+
+    .play-button:hover {
+      background: linear-gradient(90deg, #00e6d0 0%, #4f8cff 100%);
+      box-shadow: 0 4px 16px rgba(0,230,208,0.18);
+    }
+
+    @media (max-width: 900px) {
+      .games-list {
+        gap: 2.2rem;
+        max-width: 98vw;
+      }
+      .container {
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .games-list {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .game-card {
+        max-width: 98vw;
+        min-height: 220px;
+        padding: 0.7rem 0.5rem 1rem 0.5rem;
+      }
+      .game-card img.game-screenshot {
+        height: 80px;
+      }
+      .main-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="main-title">Mini Games</h1>
+    <div class="games-list">
+      {{#each games}}
+      <div class="game-card">
+        <img class="game-screenshot" src="../screenshots/{{screenshots.[0]}}" alt="{{title}}">
+        <div class="game-title">{{title}}</div>
+        <div class="game-description">{{description}}</div>
+        <button class="play-button" onclick="window.location.href='{{demos.[0]}}'">
+          <i class="fas fa-play"></i> Jogar Agora
+        </button>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+  <script src="games.js"></script>
+  <script>
+    var template = Handlebars.compile(document.body.innerHTML);
+    document.body.innerHTML = template({ games: games });
+  </script>
+</body>
+
+</html>
